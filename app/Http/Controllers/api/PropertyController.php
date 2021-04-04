@@ -46,7 +46,7 @@ class PropertyController extends Controller
             'type'=> $request->type,
             'description'=> $request->description,
             'location'=> $request->location,
-            'rating'=> $request->rating,
+            'rating'=> '3.4',
             'image_url'=> $url,
         ]);
     }
@@ -99,7 +99,7 @@ class PropertyController extends Controller
             // Update property in db;
             $property->type = $request->type;
             $property->description = $request->description; 
-            $property->rating = $request->rating;
+            // $property->rating = $request->rating;
             $property->location = $request->location;
             $property->save();
             return $property;

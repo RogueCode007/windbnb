@@ -8,15 +8,22 @@
         <p class="text-gray-400 text-sm">{{property.type}}</p>
         <p class="text-gray-400 text-sm"><span class="iconify inline red" data-icon="ant-design:star-filled" data-inline="false"></span> {{property.rating}}</p>
       </div>
-      <p class="font-semibold">{{property.description}}</p>
+      <p class="font-semibold">{{property.description | trimLength}}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["property"]
-
+  props: ["property"],
+  filters:{
+    trimLength(param){
+      if(param.length < 45){
+        return param.slice(0, param.length + 1) + '                                                       '
+      }
+      return param.slice(0, 88) + '...'
+    }
+  }
 }
 </script>
 
