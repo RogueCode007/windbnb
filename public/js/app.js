@@ -21147,7 +21147,7 @@ var staticRenderFns = [
         staticClass: "iconify red inline",
         attrs: { "data-icon": "jam:triangle-f", "data-inline": "false" }
       }),
-      _vm._v("\n      windbnb\n    ")
+      _vm._v("\n      leasyng\n    ")
     ])
   }
 ]

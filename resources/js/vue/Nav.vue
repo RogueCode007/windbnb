@@ -3,7 +3,7 @@
     <nav class="md:flex md:justify-between md:items-center md:mx-5">
       <p class="text-lg red">
         <span class="iconify red inline" data-icon="jam:triangle-f" data-inline="false"></span>
-        windbnb
+        leasyng
       </p>
       <div class="nav-input rounded-full py-3 px-6 md:py-2 border flex align-center justify-between mt-5">
         <input type="text" placeholder="lagos" class="bg-white w-full" @click="displaySearch">
