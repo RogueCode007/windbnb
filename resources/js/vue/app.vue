@@ -96,12 +96,14 @@ export default {
   .modal-content{
     background-color: #fff;
     margin: 5% auto;
-    min-height: 350px
+    min-height: 350px;
+    overflow-y: hidden;
   }
   .loading-modal{
-    margin: 15% auto;
-    min-height: 350px
+    min-height: 350px;
+    
   }
+  
   .input-div{
     border-color: #f2f2f2;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1)

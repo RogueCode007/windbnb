@@ -48,7 +48,7 @@
 
           <!-- Property image field -->
           <p class="mt-8 ml-2 text-sm font-semibold">Property image</p>
-          <div class="border">
+          <div class="">
             <input type="file" ref='file' v-on:change="handleFileUpload">
           </div>
         </div>
