@@ -14,6 +14,7 @@ class Property extends Model
         'description',
         'image_url',
         'rating',
-        'location'
+        'location',
+        'price'
     ];
 }

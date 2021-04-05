@@ -1993,6 +1993,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["property"],
   filters: {
@@ -21213,6 +21214,10 @@ var render = function() {
       _vm._v(" "),
       _c("p", { staticClass: "font-semibold" }, [
         _vm._v(_vm._s(_vm._f("trimLength")(_vm.property.description)))
+      ]),
+      _vm._v(" "),
+      _c("p", { staticClass: "font-semibold" }, [
+        _vm._v("#" + _vm._s(_vm.property.price) + "/night")
       ])
     ])
   ])

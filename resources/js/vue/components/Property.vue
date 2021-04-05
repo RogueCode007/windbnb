@@ -9,6 +9,7 @@
         <p class="text-gray-400 text-sm"><span class="iconify inline red" data-icon="ant-design:star-filled" data-inline="false"></span> {{property.rating}}</p>
       </div>
       <p class="font-semibold">{{property.description | trimLength}}</p>
+      <p class="font-semibold">#{{property.price}}/night</p>
     </div>
   </div>
 </template>
