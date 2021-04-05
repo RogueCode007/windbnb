@@ -1997,12 +1997,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["property"],
   filters: {
-    trimLength: function trimLength(param) {
-      if (param.length < 45) {
-        return param.slice(0, param.length + 1) + '                                                       ';
-      }
-
-      return param.slice(0, 88) + '...';
+    trimLength: function trimLength(str) {
+      return str.slice(0, 40) + " ....";
     }
   }
 });
@@ -2099,6 +2095,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2106,12 +2121,14 @@ __webpack_require__.r(__webpack_exports__);
         type: '',
         description: '',
         location: '',
-        image: ''
+        image: '',
+        price: 0
       },
       error: {
         type: false,
         description: false,
-        location: false
+        location: false,
+        price: false
       }
     };
   },
@@ -2123,11 +2140,19 @@ __webpack_require__.r(__webpack_exports__);
       this.property.image = this.$refs.file.files[0];
     },
     handleError: function handleError() {
+      this.property.price = parseInt(this.property.price);
+
       if (true) {
         if (this.property.description.length <= 50) {
           return this.error.description = true;
         } else {
           this.error.description = false;
+        }
+
+        if (!Number.isInteger(this.property.price) || this.property.price <= 0) {
+          return this.error.price = true;
+        } else {
+          this.error.price = false;
         }
 
         if (this.property.type == "") {
@@ -2152,6 +2177,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = new FormData();
       formData.append('image', this.property.image);
       formData.append('type', this.property.type);
+      formData.append('price', this.property.price);
       formData.append('location', this.property.location);
       formData.append('description', this.property.description);
       axios.post('api/property/store', formData, {
@@ -21323,32 +21349,96 @@ var render = function() {
           [_vm._v("This field cannot be empty")]
         ),
         _vm._v(" "),
+        _c("div", {}, [
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.property.type,
+                  expression: "property.type"
+                }
+              ],
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.property,
+                    "type",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { disabled: "", value: "" } }, [
+                _vm._v("Please select one")
+              ]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Entire apartment")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Private room")]),
+              _vm._v(" "),
+              _c("option", [_vm._v("Whole house")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "mt-8 ml-2 text-sm font-semibold" }, [
+          _vm._v("Property price")
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.error.price,
+                expression: "error.price"
+              }
+            ],
+            staticClass: "text-sm text-red-500"
+          },
+          [_vm._v("Please enter a number")]
+        ),
+        _vm._v(" "),
         _c("div", { staticClass: "border input-div rounded-full py-2 px-6" }, [
           _c("input", {
             directives: [
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.property.type,
-                expression: "property.type"
+                value: _vm.property.price,
+                expression: "property.price"
               }
             ],
             staticClass: "border-none outline-none w-full",
-            attrs: { type: "text" },
-            domProps: { value: _vm.property.type },
+            attrs: { type: "numeric" },
+            domProps: { value: _vm.property.price },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.property, "type", $event.target.value)
+                _vm.$set(_vm.property, "price", $event.target.value)
               }
             }
           })
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "mt-8 ml-2 text-sm font-semibold" }, [
-          _vm._v("Property description (at least 20 words)")
+          _vm._v("Property description (at least 15 words)")
         ]),
         _vm._v(" "),
         _c(
@@ -21364,7 +21454,7 @@ var render = function() {
             ],
             staticClass: " text-sm text-red-500"
           },
-          [_vm._v("The description should contain at least 50 words")]
+          [_vm._v("The description should contain at least 15 words")]
         ),
         _vm._v(" "),
         _c(
@@ -21425,7 +21515,7 @@ var render = function() {
           [_vm._v("Location cannot be empty")]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "border" }, [
+        _c("div", {}, [
           _c(
             "select",
             {

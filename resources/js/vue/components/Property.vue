@@ -18,11 +18,8 @@
 export default {
   props: ["property"],
   filters:{
-    trimLength(param){
-      if(param.length < 45){
-        return param.slice(0, param.length + 1) + '                                                       '
-      }
-      return param.slice(0, 88) + '...'
+    trimLength(str){
+      return str.slice(0, 40) + " ...."
     }
   }
 }
