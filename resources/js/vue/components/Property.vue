@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8">
+  <router-link :to="{ name: 'property', params: { id: property.id }}" class="mt-8">
     <div class="border" style="border-radius: 24px">
       <img :src="property.image_url" alt="property-image" style="height: 250px; width: 100%; display: block; border-radius: 24px" >  
     </div>
@@ -11,7 +11,7 @@
       <p class="font-semibold">{{property.description | trimLength}}</p>
       <p class="font-semibold">#{{property.price}}/night</p>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>

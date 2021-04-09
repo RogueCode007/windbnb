@@ -11,28 +11,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Nav_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Nav.vue */ "./resources/js/vue/Nav.vue");
+/* harmony import */ var _loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./loading */ "./resources/js/vue/components/loading.vue");
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Property',
+  components: {
+    Loading: _loading__WEBPACK_IMPORTED_MODULE_1__.default,
+    Nav: _Nav_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
   data: function data() {
     return {
       id: this.$route.params.id,
-      property: {}
+      property: {},
+      loading: true
     };
   },
   created: function created() {
     var _this = this;
 
-    axios.get('api/property/' + this.id).then(function (res) {
+    axios.get(this.id).then(function (res) {
       if (res.status == 200) {
         _this.property = res.data;
         console.log(_this.property);
       }
+    }).then(function () {
+      _this.loading = false;
     })["catch"](function (err) {
       console.log(err);
     });
@@ -129,7 +145,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n  A property\n")])
+  return _c(
+    "div",
+    { staticClass: "p-4" },
+    [
+      _c("Nav"),
+      _vm._v(" "),
+      _c("div", [
+        _c("p", { staticClass: "text-xl font-semibold" }, [
+          _vm._v(_vm._s(_vm.property.type))
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-gray-400 text-sm mt-3" }, [
+          _c("span", {
+            staticClass: "iconify inline red",
+            attrs: {
+              "data-icon": "ant-design:star-filled",
+              "data-inline": "false"
+            }
+          }),
+          _vm._v(" " + _vm._s(_vm.property.rating))
+        ])
+      ]),
+      _vm._v(" "),
+      _vm.loading ? _c("Loading") : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

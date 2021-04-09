@@ -41,7 +41,6 @@ export default {
   methods:{
     toggleSearchModal(){
       this.searchModal = !this.searchModal;
-      console.log(this.searchModal);
     },
     toggleHomeModal(){
       this.addhomeModal = !this.addhomeModal;
@@ -91,7 +90,7 @@ export default {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0, 0.1);
   }
   .modal-content{
     background-color: #fff;

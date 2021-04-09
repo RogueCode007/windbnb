@@ -13,10 +13,6 @@ export default {
     Property
   },
   props:["properties"],
-  mounted(){
-    console.log(this.properties);
-  }
-
 }
 </script>
 
