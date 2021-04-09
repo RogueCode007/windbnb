@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <router-view></router-view>
-    <!-- <Nav />
+  <div class="p-4">
+    <Nav />
     <div class="flex justify-between items-center mt-4 md:mx-5">
       <p class="text-black text-lg font-bold">Stay in Nigeria</p>
       <p class="text-black text-md cursor-pointer" @click="toggleHomeModal">
@@ -11,75 +10,73 @@
      <PropertyList :properties="properties" />
      <SearchModal v-show="searchModal" v-on:closeSearch="toggleSearchModal" />
      <AddHomeModal v-show="addhomeModal" v-on:closeModal="toggleHomeModal" v-on:itemAdded="addItem" v-on:refresh="getProps"/>
-     <Loading v-show="loading" /> -->
+     <Loading v-show="loading" />
   </div>
 
 </template>
 
 <script>
-// import Nav from './Nav.vue';
-import Home from './home.vue';
-// import PropertyList from './components/PropertyList.vue';
-// import SearchModal from './components/searchModal';
-// import AddHomeModal from './components/addHomeModal';
-// import Loading from './components/loading';
-// import { bus } from "../app";
+import Nav from './Nav.vue';
+import PropertyList from './components/PropertyList.vue';
+import SearchModal from './components/searchModal';
+import AddHomeModal from './components/addHomeModal';
+import Loading from './components/loading';
+import { bus } from "../app";
 export default {
   components:{
-    // Nav,
-    Home,
-    // PropertyList,
-    // SearchModal,
-    // AddHomeModal,
-    // Loading
+    Nav,
+    PropertyList,
+    SearchModal,
+    AddHomeModal,
+    Loading
   },
   data: function(){
     return {
-      // searchModal: false,
-      // addhomeModal: false,
-      // loading: true,
-      // properties: []
+      searchModal: false,
+      addhomeModal: false,
+      loading: true,
+      properties: []
     }
   },
   methods:{
-    // toggleSearchModal(){
-    //   this.searchModal = !this.searchModal;
-    //   console.log(this.searchModal);
-    // },
-    // toggleHomeModal(){
-    //   this.addhomeModal = !this.addhomeModal;
-    // },
-    // addItem(){
-    //   this.toggleHomeModal();
-    //   this.loading = true;
-    // },
-    // getProps(){
-    //   axios.get('api/properties')
-    //   .then(res => {
-    //     if(res.status == 200){
-    //       this.properties = res.data
-    //     }
-    //   })
-    //   .then(()=>{
-    //     this.loading = false;
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
-    // }
+    toggleSearchModal(){
+      this.searchModal = !this.searchModal;
+      console.log(this.searchModal);
+    },
+    toggleHomeModal(){
+      this.addhomeModal = !this.addhomeModal;
+    },
+    addItem(){
+      this.toggleHomeModal();
+      this.loading = true;
+    },
+    getProps(){
+      axios.get('api/properties')
+      .then(res => {
+        if(res.status == 200){
+          this.properties = res.data
+        }
+      })
+      .then(()=>{
+        this.loading = false;
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
   },
   created(){
-    // this.getProps();
-    // bus.$on('showSearch',()=>{
-    //   this.toggleSearchModal();
-    // });
+    this.getProps();
+    bus.$on('showSearch',()=>{
+      this.toggleSearchModal();
+    });
   }
 
 }
 </script>
 
 <style>
-/* .red{
+.red{
   color: #eb5757;
 }
 .fill-red{
@@ -116,5 +113,5 @@ export default {
       margin: 0
     }
     
-  } */
+  }
 </style>

@@ -60,7 +60,11 @@ class PropertyController extends Controller
      */
     public function show($id)
     {
-        //
+        $property = Property::find($id);
+        if($property){
+            return $property;
+        }
+        return response(["message"=> "Item not found"]);
     }
 
     /**

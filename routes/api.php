@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/properties', [PropertyController::class, 'index']);
 Route::prefix('/property')->group(function(){
+    Route::get('/{id}', [PropertyController::class, 'show']);
     Route::post('/store', [PropertyController::class, 'store']);
     Route::post('/update/{id}', [PropertyController::class, 'update']);
     Route::delete('/{id}', [PropertyController::class, 'destroy']);
