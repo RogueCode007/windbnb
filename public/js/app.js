@@ -2625,7 +2625,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.red{\r\n  color: #eb5757;\n}\n.fill-red{\r\n  background-color: #eb5757;\n}\n.modal{\r\n    display: block;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: auto;\r\n    background-color: rgba(0,0,0,0.4);\n}\n.modal-content{\r\n    background-color: #fff;\r\n    margin: 5% auto;\r\n    min-height: 350px;\r\n    overflow-y: hidden;\n}\n.loading-modal{\r\n    min-height: 350px;\n}\n.input-div{\r\n    border-color: #f2f2f2;\r\n    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1)\n}\n@media only screen and (min-width: 768px){\n.search-modal{\r\n      margin: 0\n}\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.red{\r\n  color: #eb5757;\n}\n.fill-red{\r\n  background-color: #eb5757;\n}\n.modal{\r\n    display: block;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: auto;\r\n    background-color: rgba(0,0,0, 0.1);\n}\n.modal-content{\r\n    background-color: #fff;\r\n    margin: 5% auto;\r\n    min-height: 350px;\r\n    overflow-y: hidden;\n}\n.loading-modal{\r\n    min-height: 350px;\n}\n.input-div{\r\n    border-color: #f2f2f2;\r\n    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1)\n}\n@media only screen and (min-width: 768px){\n.search-modal{\r\n      margin: 0\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21370,7 +21370,13 @@ var render = function() {
       "nav",
       { staticClass: "md:flex md:justify-between md:items-center md:mx-5" },
       [
-        _vm._m(0),
+        _c("router-link", { staticClass: "text-lg red", attrs: { to: "/" } }, [
+          _c("span", {
+            staticClass: "iconify red inline",
+            attrs: { "data-icon": "jam:triangle-f", "data-inline": "false" }
+          }),
+          _vm._v("\n      leasyng\n    ")
+        ]),
         _vm._v(" "),
         _c(
           "div",
@@ -21391,24 +21397,12 @@ var render = function() {
             })
           ]
         )
-      ]
+      ],
+      1
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "text-lg red" }, [
-      _c("span", {
-        staticClass: "iconify red inline",
-        attrs: { "data-icon": "jam:triangle-f", "data-inline": "false" }
-      }),
-      _vm._v("\n      leasyng\n    ")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
