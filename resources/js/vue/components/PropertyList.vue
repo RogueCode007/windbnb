@@ -1,6 +1,6 @@
 <template>
   <div class="properties mt-6">
-    <div v-for="property in  properties" :key="property.id" class="property cursor-pointer">
+    <div v-for="property in  properties" :key="property.id" class="property cursor-pointer mt-8">
         <Property :property="property" /> 
     </div>
   </div>
